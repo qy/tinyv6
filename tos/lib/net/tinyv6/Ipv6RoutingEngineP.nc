@@ -117,6 +117,7 @@ implementation {
 	event void Boot.booted()
 	{
 		uint8_t i;
+        nx_struct t6_addr in6addr_serial;
 
 		for (i = 0; i < ROUTING_TABLE_MAX; i++) {
 			routing_table[i].flags = 0;
@@ -146,10 +147,17 @@ implementation {
   #endif
 #endif
 
+		in6addr_serial.t6_ipaddr32[0] = 0xfe800000;
+		in6addr_serial.t6_ipaddr32[1] = 0;
+		in6addr_serial.t6_ipaddr32[2] = 0;
+		in6addr_serial.t6_ipaddr32[3] = 0x23;
+        routing_table_add(in6addr_serial, in6addr_unspec, INTF_PPP, FLAG_DEFAULT_ROUTE);
 	}
 	event void UpdateRouteTimer.fired()
 	{
 		am_addr_t parent;
+
+        route_printf("update route timer fired\n");
 
 		if (call CtpInfo.getParent(&parent) == SUCCESS) {
 			nx_struct t6_addr ip6parent, *p;

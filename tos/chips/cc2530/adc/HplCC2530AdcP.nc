@@ -38,14 +38,6 @@
  * @description
  */
 
-/*
- * HplCC2530AdcP
- *
- * @author Qiu Ying <qiuying@mail.nwpu.edu.cn>
- * @date 2013/04/04
- * @description
- */
-
 #include "cc2530.h"
 #include "cc2530adc.h"
 

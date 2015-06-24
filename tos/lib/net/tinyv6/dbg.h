@@ -62,17 +62,17 @@
     #define tcp_printf(x, args...) dbg("TCP", "[TCP] %-14s"x, state_name[state],##args)
   #else
 	char *state_name[] = {
-		PSTR("CLOSED"),
-		PSTR("LISTEN"),
-		PSTR("SYN_SENT"),
-		PSTR("SYN_RCVD"),
-		PSTR("ESTABLISHED"),
-		PSTR("CLOSE_WAIT"),
-		PSTR("LAST_ACK"),
-		PSTR("FIN_WAIT_1"),
-		PSTR("FIN_WAIT_2"),
-		PSTR("CLOSING"),
-		PSTR("TIME_WAIT"),
+		"CLOSED",
+		"LISTEN",
+		"SYN_SENT",
+		"SYN_RCVD",
+		"ESTABLISHED",
+		"CLOSE_WAIT",
+		"LAST_ACK",
+		"FIN_WAIT_1",
+		"FIN_WAIT_2",
+		"CLOSING",
+		"TIME_WAIT",
 	};
     #define tcp_printf(x,args...) do{printf_P(PSTR("[TCP] %-14s"x),state_name[state],##args);printfflush();}while(0)
   #endif
